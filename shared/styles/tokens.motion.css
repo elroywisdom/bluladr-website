@@ -1,0 +1,14 @@
+/*
+ * BluLadr Design System — Motion Tokens
+ */
+
+:root {
+  --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:  cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-out: cubic-bezier(0, 0.55, 0.45, 1);
+
+  --dur-fast:  200ms;
+  --dur-base:  300ms;
+  --dur-slow:  450ms;
+  --dur-crawl: 800ms;
+}

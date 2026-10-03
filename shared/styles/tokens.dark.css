@@ -1,0 +1,14 @@
+/*
+ * BluLadr Design System — Dark Theme Overrides
+ * Applied via [data-theme="dark"] on <html>.
+ */
+
+:root[data-theme="dark"] {
+  --surface: #0F1530;
+  --raised:  #171F42;
+  --alt:     #2E3140;
+  --text:    #EEF2FA;
+  --text2:   #A9B4CE;
+  --border:  #2E3A63;
+  --accent:  #52BDE6;
+}

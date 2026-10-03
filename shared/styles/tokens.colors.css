@@ -1,0 +1,36 @@
+/*
+ * BluLadr Design System — Colour Tokens
+ * Single source of truth. Do not hard-code hex values in components.
+ */
+
+:root {
+  /* ── Brand Primitives ── */
+  --navy:     #1F4591;
+  --sky:      #049DD9;
+  --azure:    #1E8FDB;
+  --aqua:     #8BE0DE;
+  --ink:      #2E3140;
+  --black:    #000;
+  --purple:   #51006C;
+  --green:    #03A60E;
+  --confetti: #FFC857;
+
+  /* ── Signature Gradient ── */
+  --grad: linear-gradient(100deg, #8BE0DE 0%, #4FB6DF 50%, #1E8FDB 100%);
+
+  /* ── Neutrals ── */
+  --paper: #F6F8FC;
+  --mist:  #E8EEF7;
+  --line:  #D5DEEC;
+  --muted: #5A6278;
+
+  /* ── Semantic / Light Theme (default) ── */
+  --surface: var(--paper);
+  --raised:  #fff;
+  --alt:     var(--mist);
+  --text:    var(--ink);
+  --text2:   var(--muted);
+  --border:  var(--line);
+  --accent:  var(--navy);
+  --focus:   var(--sky);
+}

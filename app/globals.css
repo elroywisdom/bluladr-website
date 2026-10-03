@@ -242,19 +242,33 @@
     }
   }
 
-  /* ── Logo Theme Switching ────────────────────────────────────────── */
-  .logo-light {
-    display: block !important;
+  /* ── Marquee Loop Animation ─────────────────────────────────────── */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
-  .logo-dark {
-    display: none !important;
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 32s) linear infinite;
+    will-change: transform;
   }
-  html[data-theme='dark'] .logo-light {
-    display: none !important;
-  }
-  html[data-theme='dark'] .logo-dark {
-    display: block !important;
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none !important;
+      transform: none !important;
+      width: 100% !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+    }
   }
 }
+
 
 

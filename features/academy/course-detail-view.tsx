@@ -133,7 +133,7 @@ export function CourseDetailView({ course }: { course: Course }) {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Tell us about your team and schedule. We&rsquo;ll tailor the sessions and workshop format.
           </p>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Request a Proposal
           </Button>
         </div>

@@ -97,7 +97,7 @@ export function WorkWithUsPage() {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Tell us where you are today. We&rsquo;ll prepare a proposal with clear timelines and deliverables.
           </p>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Request a Proposal
           </Button>
         </div>

@@ -11,6 +11,12 @@ export function Preloader() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    // If already played in this browser session, skip directly
+    if (typeof window !== "undefined" && sessionStorage.getItem("bluladr_intro_played")) {
+      setStage("complete");
+      return;
+    }
+
     // Lock scroll during preloader
     document.body.style.overflow = "hidden";
 
@@ -51,6 +57,9 @@ export function Preloader() {
 
       setTimeout(() => {
         setStage("complete");
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("bluladr_intro_played", "true");
+        }
         document.body.style.overflow = "";
       }, 1050); // exit transition duration (matches duration-1000 + slight buffer)
     }, 1800); // duration brand stays centered

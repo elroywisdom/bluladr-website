@@ -33,15 +33,10 @@ export function OurApproachPage() {
               <h2 className="font-[var(--disp)] text-2xl sm:text-3xl lg:text-4xl font-normal mb-6 text-[var(--text)]">
                 The eight-step approach ladder
               </h2>
-              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
+              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-8">
                 From the first conversation to long-term monitoring, our process ensures total alignment, rigorous skill-building, and enduring value.
               </p>
-              <div className="p-6 rounded-2xl bg-[var(--alt)] border border-[var(--border)] mb-8">
-                <p className="font-[var(--disp)] text-xl italic text-[var(--text)] m-0">
-                  &ldquo;No guesswork. No generic slides. Just work that makes sense.&rdquo;
-                </p>
-              </div>
-              <Button href="/contact" variant="secondary">
+              <Button href="/contact" variant="primary">
                 Request a Proposal
               </Button>
             </div>
@@ -62,7 +57,7 @@ export function OurApproachPage() {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Book a discovery call today. We&rsquo;ll listen before we advise.
           </p>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Book a Discovery Call
           </Button>
         </div>

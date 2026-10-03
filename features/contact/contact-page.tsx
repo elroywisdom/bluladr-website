@@ -334,8 +334,23 @@ export function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" variant="primary" className="w-full py-4 text-base" disabled={loading}>
-                    {loading ? "Sending..." : "Send Request"}
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="w-full py-4 text-base font-bold tracking-wide shadow-md hover:shadow-xl text-center flex items-center justify-center gap-2 cursor-pointer mt-8"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <span className="w-4 h-4 rounded-full border-2 border-white border-r-transparent animate-spin inline-block" />
+                        <span>Sending proposal request...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Proposal Request</span>
+                        <span aria-hidden="true" className="text-lg leading-none">→</span>
+                      </>
+                    )}
                   </Button>
                 </form>
               )}

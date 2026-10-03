@@ -16,7 +16,7 @@ const SERVICES = [
     href: "/blustrategy",
     color: "var(--azure)",
     borderColor: "hover:border-[var(--azure)]",
-    icon: <IllustrationCompass className="w-full h-full text-[var(--azure)]" />,
+    icon: <IllustrationCompass className="w-full h-full" />,
     deliverable: "A complete Brand Bible covering brand, business and marketing strategy.",
   },
   {
@@ -27,7 +27,7 @@ const SERVICES = [
     href: "/bluexecutive",
     color: "var(--purple)",
     borderColor: "hover:border-[var(--purple)]",
-    icon: <IllustrationSpotlight className="w-full h-full text-[var(--purple)]" />,
+    icon: <IllustrationSpotlight className="w-full h-full" />,
     deliverable: "A clear executive brand identity and complete media readiness.",
   },
   {
@@ -38,7 +38,7 @@ const SERVICES = [
     href: "/bluacademy",
     color: "var(--green)",
     borderColor: "hover:border-[var(--green)]",
-    icon: <IllustrationBooks className="w-full h-full text-[var(--green)]" />,
+    icon: <IllustrationBooks className="w-full h-full" />,
     deliverable: "End-to-end internal capability across 6 comprehensive courses.",
   },
 ] as const;
@@ -115,7 +115,7 @@ export function WhatWeDoPage() {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Tell us where you are today. Every engagement is tailored after a discovery call.
           </p>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Request a Proposal
           </Button>
         </div>

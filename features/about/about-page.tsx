@@ -175,7 +175,7 @@ export function AboutPage() {
           <h2 className="font-[var(--disp)] text-[clamp(2.5rem,4vw+1rem,3.75rem)] font-normal text-white mb-8">
             Stay with us. It only gets <span className="italic">more interesting.</span>
           </h2>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Request a Proposal
           </Button>
         </div>

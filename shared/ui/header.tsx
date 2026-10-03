@@ -76,7 +76,7 @@ export function Header() {
         {/* Logo */}
         <div className="flex items-center gap-3 shrink-0">
           <Link href="/" className="flex items-center no-underline shrink-0" aria-label="BluLadr Home">
-            <Logo variant="dark" width={148} height={30} asLink={false} />
+            <Logo width={148} height={30} asLink={false} />
           </Link>
         </div>
 
@@ -179,10 +179,11 @@ export function Header() {
               href="/contact"
               className={[
                 "inline-flex items-center justify-center min-h-[44px] px-6 py-2.5",
-                "bg-[var(--ink)] hover:bg-[var(--azure)] text-white",
-                "rounded-[12px] font-[var(--ui)] font-bold text-sm tracking-wide no-underline cursor-pointer",
-                "transition-all duration-300 [transition-timing-function:var(--ease)] shadow-[var(--sh1)]",
-                "hover:shadow-[var(--sh2)] hover:-translate-y-0.5",
+                "bg-gradient-to-r from-[#049DD9] via-[#1E8FDB] to-[#1F4591] text-white",
+                "rounded-full font-[var(--ui)] font-bold text-sm tracking-wide no-underline cursor-pointer",
+                "shadow-[0_4px_14px_rgba(4,157,217,0.28)] hover:shadow-[0_6px_22px_rgba(4,157,217,0.45)]",
+                "hover:-translate-y-0.5 hover:brightness-105 active:translate-y-0 active:brightness-95",
+                "transition-all duration-300 [transition-timing-function:var(--ease)]",
                 "focus-visible:outline-3 focus-visible:outline-[var(--sky)] focus-visible:outline-offset-3",
               ].join(" ")}
             >

@@ -16,12 +16,12 @@ const FAQS = [
     a: "Yes. Many organisations start with strategy and then train the team to deliver it.",
   },
   {
-    q: "Who attends BluAcademy training?",
-    a: "Mixed teams across marketing, communications and strategy. Your organisation makes the final call on who attends.",
+    q: "Who gets trained at BluAcademy?",
+    a: "Mixed teams across marketing, communications and strategy. Your organisation makes the final call on who gets trained.",
   },
   {
     q: "Do you work in person or online?",
-    a: "Mostly in person, with hybrid options where they suit.",
+    a: "We deliver in person, hybrid, and fully virtual sessions depending on your team's structure and needs.",
   },
   {
     q: "Do you work outside Abuja?",
@@ -101,7 +101,7 @@ export function FaqPage() {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Send us a request and we&rsquo;ll get in touch to book your discovery call.
           </p>
-          <Button href="/contact" variant="primary" className="px-8 py-4 text-base">
+          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
             Request a Proposal
           </Button>
         </div>

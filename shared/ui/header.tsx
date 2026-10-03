@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
-import { ThemeToggle } from "./theme-toggle";
 
 interface ServiceItem {
   label: string;
@@ -74,17 +73,10 @@ export function Header() {
       ].join(" ")}
     >
       <div className="wrap flex items-center justify-between h-20 gap-4 max-w-[1200px] px-6">
-        {/* Logo - switches strictly based on data-theme attribute */}
+        {/* Logo */}
         <div className="flex items-center gap-3 shrink-0">
           <Link href="/" className="flex items-center no-underline shrink-0" aria-label="BluLadr Home">
-            {/* Show dark logo on light theme */}
-            <span className="logo-light shrink-0">
-              <Logo variant="dark" width={148} height={30} asLink={false} />
-            </span>
-            {/* Show white logo on dark theme */}
-            <span className="logo-dark shrink-0">
-              <Logo variant="white" width={148} height={30} asLink={false} />
-            </span>
+            <Logo variant="dark" width={148} height={30} asLink={false} />
           </Link>
         </div>
 
@@ -181,15 +173,13 @@ export function Header() {
             })}
           </nav>
 
-          {/* Action Area: Theme Toggle + One Primary CTA Pill */}
+          {/* Action Area: One Primary CTA Pill */}
           <div className="flex items-center gap-3">
-            <ThemeToggle className="border-[var(--border)] bg-[var(--raised)] text-[var(--text)] hover:bg-[var(--alt)]" />
-
             <Link
               href="/contact"
               className={[
                 "inline-flex items-center justify-center min-h-[44px] px-6 py-2.5",
-                "bg-[var(--ink)] [html[data-theme='dark']_&]:bg-white text-white [html[data-theme='dark']_&]:text-[var(--ink)]",
+                "bg-[var(--ink)] hover:bg-[var(--azure)] text-white",
                 "rounded-[12px] font-[var(--ui)] font-bold text-sm tracking-wide no-underline cursor-pointer",
                 "transition-all duration-300 [transition-timing-function:var(--ease)] shadow-[var(--sh1)]",
                 "hover:shadow-[var(--sh2)] hover:-translate-y-0.5",

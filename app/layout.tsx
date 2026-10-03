@@ -63,25 +63,11 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      suppressHydrationWarning
       className={[recia.variable, supreme.variable].join(" ")}
     >
       <head>
         {/* Preload hero poster image for instant paint with zero CLS */}
         <link rel="preload" href="/videos/hero-poster.jpg" as="image" fetchPriority="high" />
-        {/* Prevent flash of wrong theme — runs before first paint */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){
-  try {
-    var stored = localStorage.getItem("theme");
-    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var theme = stored || (prefersDark ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch(e){}
-}())`,
-          }}
-        />
       </head>
       <body>
         <Preloader />

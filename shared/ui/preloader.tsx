@@ -3,58 +3,57 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-type PreloaderStage = "loading" | "video-playing" | "brand-entering" | "exiting" | "complete";
+type PreloaderStage = "video-playing" | "brand-entering" | "exiting" | "complete";
 
 export function Preloader() {
-  const [stage, setStage] = useState<PreloaderStage>("loading");
+  const [stage, setStage] = useState<PreloaderStage>("video-playing");
   const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-
-    // Check if user already saw the preloader in this session (allow ?replay=1 or ?preloader=1 to force)
-    const urlParams = new URLSearchParams(window.location.search);
-    const forceReplay = urlParams.has("preloader") || urlParams.has("replay");
-    const hasSeen = sessionStorage.getItem("bluladr_preloader_seen");
-
-    if (hasSeen && !forceReplay) {
-      setStage("complete");
-      return;
-    }
-
     // Lock scroll during preloader
     document.body.style.overflow = "hidden";
-    setStage("video-playing");
+
+    // Attempt video playback safely
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay fallback handled gracefully
+      });
+    }
+
+    // Safety fallback: if video is blocked or takes too long, transition automatically
+    const safetyTimer = setTimeout(() => {
+      setStage((curr) => {
+        if (curr === "video-playing") {
+          handleVideoEnded();
+        }
+        return curr;
+      });
+    }, 12000);
 
     return () => {
+      clearTimeout(safetyTimer);
       document.body.style.overflow = "";
     };
   }, []);
 
   const handleVideoEnded = () => {
-    if (stage === "complete" || stage === "exiting" || stage === "brand-entering") return;
-    
-    // Stage 1 -> Stage 2: Cinematic Brand Ease-in
-    setStage("brand-entering");
+    setStage((curr) => {
+      if (curr === "complete" || curr === "exiting" || curr === "brand-entering") {
+        return curr;
+      }
+      return "brand-entering";
+    });
 
     // Hold the brand reveal cinematically, then initiate upward wipe exit
-    const brandTimer = setTimeout(() => {
+    setTimeout(() => {
       setStage("exiting");
-      
-      const exitTimer = setTimeout(() => {
+
+      setTimeout(() => {
         setStage("complete");
         document.body.style.overflow = "";
-        try {
-          sessionStorage.setItem("bluladr_preloader_seen", "true");
-        } catch {}
       }, 1050); // exit transition duration (matches duration-1000 + slight buffer)
-
-      return () => clearTimeout(exitTimer);
     }, 1800); // duration brand stays centered
-
-    return () => clearTimeout(brandTimer);
   };
 
   const handleTimeUpdate = () => {
@@ -70,7 +69,7 @@ export function Preloader() {
     handleVideoEnded();
   };
 
-  if (!isMounted || stage === "complete") {
+  if (stage === "complete") {
     return null;
   }
 

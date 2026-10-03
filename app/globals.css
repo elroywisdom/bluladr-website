@@ -12,7 +12,6 @@
 @import "../shared/styles/tokens.spacing.css";
 @import "../shared/styles/tokens.radius-shadow.css";
 @import "../shared/styles/tokens.motion.css";
-@import "../shared/styles/tokens.dark.css";
 
 /* ── Tailwind v4 Theme Mapping ───────────────────────────────────── */
 @theme {

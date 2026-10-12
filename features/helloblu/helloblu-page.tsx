@@ -183,6 +183,9 @@ export function HelloBluPage() {
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <Input
                   type="email"
+                  name="email"
+                  id="newsletter-email"
+                  autoComplete="email"
                   required
                   placeholder="name@company.com"
                   value={email}

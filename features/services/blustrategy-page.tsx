@@ -1,96 +1,173 @@
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/shared/ui/button";
-import { IllustrationCompass } from "@/shared/ui/illustrations";
+import { ServiceIconStrategy } from "@/shared/ui/service-icons";
 
-const DELIVERABLES = [
-  "Brand strategy development",
-  "Market and competitor analysis",
-  "Marketing strategy",
-  "Positioning and messaging",
-  "Go-to-market planning",
+const STRATEGY_PHASES = [
+  {
+    phase: "Phase 01",
+    timeline: "Days 1–5",
+    title: "Diagnostics & Market Intelligence",
+    desc: "We scrutinise your market positioning, benchmark competitive friction, and conduct stakeholder interviews to identify unexploited ground.",
+    deliverables: ["Market & Competitor Analysis", "Stakeholder Perception Audit", "Audience Segmentation"],
+    accent: "var(--azure)",
+  },
+  {
+    phase: "Phase 02",
+    timeline: "Days 6–15",
+    title: "Positioning & Messaging Architecture",
+    desc: "We define your core brand proposition, value narrative, and tone of voice. Every message is engineered to cut through noise and convert attention.",
+    deliverables: ["Core Brand Strategy", "Positioning & Messaging Framework", "Executive Communication Matrix"],
+    accent: "var(--purple)",
+  },
+  {
+    phase: "Phase 03",
+    timeline: "Days 16–21",
+    title: "The Brand Bible & Go-to-Market Blueprint",
+    desc: "We crystallise the complete strategy into a living, authoritative guide that internal teams and external agencies adhere to without ambiguity.",
+    deliverables: ["Complete Brand Bible", "Go-to-Market Rollout Plan", "Internal Team Handover Session"],
+    accent: "var(--green)",
+  },
 ];
 
 export function BluStrategyPage() {
   return (
     <div className="w-full bg-[var(--surface)] text-[var(--text)] transition-colors duration-200">
       {/* 1. Hero Section */}
-      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--border)]">
+      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--border)] overflow-hidden">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--azure)] font-[var(--ui)] block mb-4">
-                BluStrategy
-              </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--alt)] border border-[var(--border)] text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[var(--accent)] mb-6">
+                <ServiceIconStrategy size={16} />
+                <span>BluStrategy &bull; Clarity &amp; Direction</span>
+              </div>
               <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4.5vw+1rem,4.25rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
-                Do you think your business deserves a <span className="italic">structured strategy?</span>
+                So do we. Your business deserves a <span className="italic underline decoration-[var(--azure)] decoration-2">structured strategy.</span>
               </h1>
-              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8">
-                Do you think your business deserves a structured strategy that guides communication, marketing and business decisions? So do we.
+              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8 max-w-xl">
+                So do we. Your business deserves a structured strategy that guides communication, marketing and business decisions.
               </p>
-              <Button href="/contact" variant="primary">
-                Request a Proposal
-              </Button>
+              <div className="flex flex-wrap items-center gap-4">
+                <Button href="/contact" variant="primary">
+                  Request a Proposal
+                </Button>
+                <Button href="/work-with-us" variant="secondary">
+                  View Packages
+                </Button>
+              </div>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm flex items-center justify-center">
-              <div className="w-64 h-64 flex items-center justify-center">
-                <IllustrationCompass className="w-full h-full text-[var(--azure)]" />
+            {/* Elevated Hero Visual */}
+            <div className="relative rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl group aspect-[4/3] bg-[var(--raised)]">
+              <Image
+                src="/brand-assets/strategy-session.jpg"
+                alt="BluLadr Strategic Workshop Session"
+                fill
+                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0914]/80 via-transparent to-transparent pointer-events-none" />
+              
+              {/* Floating Executive Emblem Badge */}
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-white flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[var(--azure)]/20 border border-[var(--azure)]/40 flex items-center justify-center text-[var(--aqua)] shrink-0">
+                  <ServiceIconStrategy size={28} />
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[var(--aqua)] font-[var(--ui)]">
+                    The Strategy Standard
+                  </div>
+                  <div className="text-sm font-[var(--body)] text-white/90">
+                    2-Day Intensive Workshop &bull; 3-Week Complete Build
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Overview & Details */}
-      <section className="w-full py-20 sm:py-28">
+      {/* 2. Creative Middle Section: Strategic Roadmap Architecture */}
+      <section className="w-full py-20 sm:py-28 md:py-36">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16">
-            <div>
-              <h2 className="font-[var(--disp)] text-2xl sm:text-3xl font-normal mb-6 text-[var(--text)]">
-                Industry-based, research-led, built to be used.
-              </h2>
-              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
-                We work with businesses to define how they show up in the market: clearly, competitively and with intention.
-              </p>
-              <div className="p-6 rounded-2xl bg-[var(--raised)] border border-[var(--border)] space-y-4">
+          <div className="max-w-3xl mb-16 sm:mb-20">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--azure)] font-[var(--ui)] block mb-3">
+              Methodology Architecture
+            </span>
+            <h2 className="font-[var(--disp)] text-[clamp(2.25rem,3.5vw+1rem,3.75rem)] leading-[1.08] tracking-[-0.025em] text-[var(--text)] mb-6">
+              Industry-based. Research-led. <br />
+              <span className="italic underline decoration-[var(--azure)] decoration-2">Built to be used on Monday morning.</span>
+            </h2>
+            <p className="font-[var(--body)] text-[var(--text2)] text-lg leading-relaxed">
+              We replace guesswork with rigorous architecture. Every engagement progresses through a transparent three-phase framework resulting in an actionable Brand Bible.
+            </p>
+          </div>
+
+          {/* 3-Phase Interactive Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {STRATEGY_PHASES.map((p, i) => (
+              <div
+                key={p.phase}
+                className="group relative p-8 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              >
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] block mb-1">
-                    How it runs
-                  </span>
-                  <p className="font-[var(--body)] text-base text-[var(--text)] m-0">
-                    A 2-day business discovery workshop, followed by a 3-week development timeline.
+                  <div className="flex items-center justify-between mb-6">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider"
+                      style={{ backgroundColor: `${p.accent}15`, color: p.accent }}
+                    >
+                      {p.phase}
+                    </span>
+                    <span className="text-xs font-bold font-mono text-[var(--text2)]">
+                      {p.timeline}
+                    </span>
+                  </div>
+
+                  <h3 className="font-[var(--disp)] text-2xl font-normal text-[var(--text)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+                    {p.title}
+                  </h3>
+
+                  <p className="font-[var(--body)] text-sm sm:text-base text-[var(--text2)] leading-relaxed mb-6">
+                    {p.desc}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-[var(--border)]">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] block mb-1">
-                    You leave with
+
+                <div className="pt-6 border-t border-[var(--border)]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] block mb-3">
+                    Deliverables:
                   </span>
-                  <p className="font-[var(--body)] text-base font-semibold text-[var(--text)] m-0">
-                    A complete Brand Bible covering your brand, business and marketing strategy.
-                  </p>
+                  <ul className="space-y-2 list-none p-0 m-0">
+                    {p.deliverables.map((del) => (
+                      <li key={del} className="flex items-center gap-2 text-xs font-medium font-[var(--ui)] text-[var(--text)]">
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: p.accent }} />
+                        <span>{del}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
 
+          {/* Tangible Outcome Banner */}
+          <div className="p-8 sm:p-12 rounded-3xl bg-[var(--alt)] border border-[var(--border)] grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
             <div>
-              <h3 className="font-[var(--disp)] text-2xl font-normal mb-6 text-[var(--text)]">
-                What we do
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] block mb-2">
+                The Tangible Core Asset
+              </span>
+              <h3 className="font-[var(--disp)] text-2xl sm:text-3xl font-normal text-[var(--text)] mb-4">
+                The Complete Brand Bible
               </h3>
-              <ul className="space-y-4 list-none p-0 m-0">
-                {DELIVERABLES.map((item, idx) => (
-                  <li
-                    key={item}
-                    className="p-5 rounded-xl bg-[var(--raised)] border border-[var(--border)] flex items-center gap-4 transition-all hover:border-[var(--azure)]"
-                  >
-                    <span className="w-8 h-8 rounded-full bg-[var(--surface)] text-[var(--azure)] border border-[var(--border)] flex items-center justify-center font-mono text-xs font-bold">
-                      0{idx + 1}
-                    </span>
-                    <span className="font-[var(--ui)] font-bold text-base text-[var(--text)]">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <p className="font-[var(--body)] text-[var(--text2)] text-base leading-relaxed m-0">
+                You leave with a comprehensive master document covering business narrative, audience psychology, competitive positioning, and marketing architecture. Your team and agencies can execute immediately without ambiguity.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-4 lg:items-end justify-center">
+              <Button href="/contact" variant="primary" className="w-full sm:w-auto text-center">
+                Book Discovery Workshop
+              </Button>
             </div>
           </div>
         </div>

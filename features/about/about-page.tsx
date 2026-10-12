@@ -21,11 +21,11 @@ export function AboutPage() {
   return (
     <div className="w-full bg-[var(--surface)] text-[var(--text)] transition-colors duration-200">
       {/* 1. Hero Section */}
-      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--border)]">
+      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="max-w-3xl">
             <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4.5vw+1rem,4.25rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
-              We help businesses find <span className="italic">market ease.</span>
+              We help businesses find <span className="italic underline decoration-[var(--azure)] decoration-2">market ease.</span>
             </h1>
             <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed m-0">
               BluLadr Ltd is an Abuja-based media and communications consultancy. We help organisations clarify their message, strengthen their brand and build internal capability.
@@ -35,7 +35,7 @@ export function AboutPage() {
       </section>
 
       {/* 2. Our Story & Philosophy */}
-      <section className="w-full py-20 sm:py-28">
+      <section className="w-full py-16 sm:py-24">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
             <div>
@@ -65,10 +65,10 @@ export function AboutPage() {
       </section>
 
       {/* 3. Vision & Mission Cards */}
-      <section className="w-full py-16 sm:py-24 bg-[var(--alt)] border-y border-[var(--border)]">
+      <section className="w-full py-20 sm:py-28 bg-[var(--alt)]">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 sm:p-10 rounded-2xl bg-[var(--raised)] border border-[var(--border)] shadow-sm">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] block mb-3">
                 Our Vision
               </span>
@@ -80,7 +80,7 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-2xl bg-[var(--raised)] border border-[var(--border)] shadow-sm">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--purple)] font-[var(--ui)] block mb-3">
                 Our Mission
               </span>
@@ -99,26 +99,49 @@ export function AboutPage() {
       <section className="w-full py-20 sm:py-28">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm">
-            <div className="max-w-3xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] block mb-3">
-                Leadership
-              </span>
-              <h2 className="font-[var(--disp)] text-3xl sm:text-4xl font-normal text-[var(--text)] mb-6">
-                Meet our Principal: Innocent Agboma
-              </h2>
-              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
-                Innocent Agboma is a Creative Project Executive and Brand Communication Specialist with over half a decade of experience across strategy, marketing and brand communication. He works with corporate teams to improve clarity, execution and internal proficiency.
-              </p>
-              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
-                He has led projects with some of the most recognisable brands across Africa, helping them think clearly, communicate effectively and deliver stronger work. As a trainer and course creator, his sessions are practical, structured and outcome-driven.
-              </p>
-              <p className="font-[var(--disp)] text-lg sm:text-xl text-[var(--text)] italic leading-relaxed mb-8">
-                And yes, he has a soft spot for confetti.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
+              {/* Executive Portrait */}
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-[var(--border)] bg-[var(--surface)] group">
+                <Image
+                  src="/brand-assets/innocent-agboma.jpg"
+                  alt="Innocent Agboma — Principal at BluLadr"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="text-base font-bold font-[var(--ui)]">Innocent Agboma</div>
+                  <div className="text-xs text-white/80 font-[var(--body)]">Principal &amp; Brand Communication Specialist</div>
+                </div>
+              </div>
+
+              {/* Bio & Details */}
               <div>
-                <Button href="https://linkedin.com" variant="secondary">
-                  Connect on LinkedIn <span aria-hidden="true">↗</span>
-                </Button>
+                <h2 className="font-[var(--disp)] text-3xl sm:text-4xl font-normal text-[var(--text)] mb-6">
+                  Meet our Principal: Innocent Agboma
+                </h2>
+                <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
+                  Innocent Agboma is a Creative Project Executive and Brand Communication Specialist with over half a decade of experience across strategy, marketing and brand communication. He works with corporate teams to improve clarity, execution and internal proficiency.
+                </p>
+                <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-6">
+                  He has led projects with some of the most recognisable brands across Africa—including the <strong>Embassy of Sweden, Abuja</strong>; <strong>Murfaj Farms</strong>; <strong>BGR</strong>; and <strong>Rutherford Digital Solutions</strong>—helping them think clearly, communicate effectively and deliver stronger work. As a trainer and course creator, his sessions are practical, structured and outcome-driven.
+                </p>
+                <p className="font-[var(--disp)] text-lg sm:text-xl text-[var(--text)] italic leading-relaxed mb-8">
+                  And yes, he has a soft spot for confetti.
+                </p>
+                <div>
+                  <a
+                    href="https://www.linkedin.com/in/innocentagboma/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold font-[var(--ui)] bg-[var(--surface)] text-[var(--text)] border border-[var(--border)] hover:border-[var(--azure)] hover:text-[var(--azure)] transition-all shadow-sm no-underline"
+                  >
+                    <span>Connect on LinkedIn</span>
+                    <span aria-hidden="true">&nearr;</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -126,7 +149,7 @@ export function AboutPage() {
       </section>
 
       {/* 5. By the Numbers & Partner Logos */}
-      <section className="w-full py-16 sm:py-24 bg-[var(--alt)] border-t border-[var(--border)]">
+      <section className="w-full py-16 sm:py-24 bg-[var(--alt)]">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 text-center">
             {STATS.map((stat) => (

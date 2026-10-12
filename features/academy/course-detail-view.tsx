@@ -18,23 +18,67 @@ export function CourseDetailView({ course }: { course: Course }) {
             <span className="text-[var(--text)] font-bold">{course.title}</span>
           </nav>
 
-          <div className="max-w-3xl">
-            <span
-              className="text-xs font-bold uppercase tracking-widest font-[var(--ui)] block mb-4"
-              style={{ color: course.accentColor }}
-            >
-              Course {course.number}
-            </span>
-            <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4vw+1rem,4rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
-              {course.headline}
-            </h1>
-            <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8">
-              {course.overview}
-            </p>
-            <Button href="/contact" variant="primary">
-              Request a Proposal
-            </Button>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+              <div>
+                <span
+                  className="text-xs font-bold uppercase tracking-widest font-[var(--ui)] block mb-4"
+                  style={{ color: course.accentColor }}
+                >
+                  Course {course.number} &bull; Comprehensive Syllabus
+                </span>
+                <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4vw+1rem,4rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
+                  {course.headline}
+                </h1>
+                <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8">
+                  {course.overview}
+                </p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button href="/work-with-us" variant="primary">
+                    View Course Pricing &amp; Packages
+                  </Button>
+                  <Button href="/contact?service=BluAcademy" variant="secondary">
+                    Request Custom Team Billing
+                  </Button>
+                </div>
+              </div>
+
+              {/* Video Preview & Warmth Container (specifically featured on brand strategy & core courses) */}
+              <div className="relative rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl bg-[var(--raised)] group">
+                <div className="relative aspect-video w-full bg-[#0B0914] flex items-center justify-center overflow-hidden">
+                  <video
+                    src="/brand-assets/hero-bg-video.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                  {/* Play Button Indicator */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:bg-[var(--azure)] transition-all duration-300">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="ml-1">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                    </div>
+                    <span className="text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-white/90 drop-shadow">
+                      Watch Course Briefing (2:45)
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-5 border-t border-[var(--border)] bg-[var(--surface)]">
+                  <div className="flex items-center justify-between text-xs font-[var(--ui)] mb-1">
+                    <span className="font-bold text-[var(--text)]">Facilitator Briefing</span>
+                    <span className="font-mono text-[var(--text2)]">Innocent Agboma</span>
+                  </div>
+                  <p className="text-xs text-[var(--text2)] font-[var(--body)] leading-relaxed m-0">
+                    A quick walkthrough explaining key syllabus frameworks, practical exercises, and expected return on investment.
+                  </p>
+                </div>
+              </div>
+            </div>
         </div>
       </section>
 
@@ -133,9 +177,14 @@ export function CourseDetailView({ course }: { course: Course }) {
           <p className="font-[var(--body)] text-white/80 text-lg max-w-xl mx-auto mb-10">
             Tell us about your team and schedule. We&rsquo;ll tailor the sessions and workshop format.
           </p>
-          <Button href="/contact" variant="white" className="px-8 py-4 text-base">
-            Request a Proposal
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/work-with-us" variant="white" className="w-full sm:w-auto px-8 py-4 text-base">
+              View Course Pricing &amp; Packages
+            </Button>
+            <Button href="/contact?service=BluAcademy" variant="outline-white" className="w-full sm:w-auto px-8 py-4 text-base">
+              Request Custom Billing
+            </Button>
+          </div>
         </div>
       </section>
     </div>

@@ -62,35 +62,54 @@ export function WhySection() {
             </div>
           </div>
 
-          {/* Right Column: Staggered Value Cards */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            {REASONS.map((reason, i) => (
-              <div
-                key={reason.title}
-                className="reveal group p-8 sm:p-9 rounded-2xl bg-[var(--raised)] border border-[var(--border)] shadow-[var(--sh1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--sh2)] hover:border-[var(--sky)]"
-                style={{ "--i": i } as React.CSSProperties}
-              >
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span
-                    className="inline-flex items-center px-3 py-1 rounded-md text-xs font-bold font-mono tracking-widest bg-[var(--alt)]"
-                    style={{ color: reason.color }}
+          {/* Right Column: Architectural Pillars */}
+          <div className="lg:col-span-7 relative">
+            {/* Subtle vertical connector rail for large screens */}
+            <div className="hidden sm:block absolute left-8 top-10 bottom-10 w-[2px] bg-gradient-to-b from-[var(--azure)] via-[var(--purple)] to-[var(--green)] opacity-20 pointer-events-none" />
+
+            <div className="flex flex-col gap-6 relative z-10">
+              {REASONS.map((reason, i) => (
+                <div
+                  key={reason.title}
+                  className="reveal group relative p-8 sm:p-9 sm:pl-16 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-[var(--sh1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--sh2)] hover:border-[var(--sky)] backdrop-blur-sm overflow-hidden"
+                  style={{ "--i": i } as React.CSSProperties}
+                >
+                  {/* Glowing left highlight bar */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1.5 opacity-60 group-hover:opacity-100 transition-opacity"
+                    style={{ backgroundColor: reason.color }}
+                  />
+
+                  {/* Desktop Step Marker Node */}
+                  <div
+                    className="hidden sm:flex absolute left-5 top-9 w-6 h-6 rounded-full items-center justify-center text-[10px] font-mono font-bold text-white shadow-md transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: reason.color }}
                   >
-                    [{reason.num}]
-                  </span>
-                  <span className="text-xs font-bold uppercase tracking-wider font-[var(--ui)] text-[var(--text2)]">
-                    {reason.tag}
-                  </span>
+                    {reason.num}
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4 mb-3 sm:mb-2">
+                    <span
+                      className="sm:hidden inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold font-mono tracking-widest bg-[var(--alt)]"
+                      style={{ color: reason.color }}
+                    >
+                      [{reason.num}]
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-wider font-[var(--ui)] text-[var(--text2)]">
+                      {reason.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="font-[var(--disp)] text-2xl sm:text-3xl font-normal text-[var(--text)] mb-3 leading-snug group-hover:text-[var(--accent)] transition-colors">
+                    {reason.title}
+                  </h3>
+
+                  <p className="font-[var(--body)] text-[var(--text2)] text-base leading-relaxed m-0">
+                    {reason.body}
+                  </p>
                 </div>
-
-                <h3 className="font-[var(--disp)] text-2xl sm:text-3xl font-normal text-[var(--text)] mb-3 leading-snug group-hover:text-[var(--accent)] transition-colors">
-                  {reason.title}
-                </h3>
-
-                <p className="font-[var(--body)] text-[var(--text2)] text-base leading-relaxed m-0">
-                  {reason.body}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

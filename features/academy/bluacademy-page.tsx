@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
-import { IllustrationBooks } from "@/shared/ui/illustrations";
+import { ServiceIconAcademy } from "@/shared/ui/service-icons";
 import { COURSES } from "./courses-data";
 
 const COURSE_THEMES: Record<string, { color: string; bg: string; border: string }> = {
@@ -52,40 +53,67 @@ export function BluAcademyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--alt)] border border-[var(--border)] text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[#4ADE80] mb-6">
+                <ServiceIconAcademy size={16} />
+                <span>BluAcademy &bull; Capability &amp; Mastery</span>
+              </div>
+
               <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4.5vw+1rem,4.25rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
                 Build real, practical <br />
-                <span className="italic">in-house capability.</span>
+                <span className="italic underline decoration-[#4ADE80] decoration-2">in-house capability.</span>
               </h1>
 
-              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8">
+              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8 max-w-xl">
                 Outsourcing can be very expensive. We help you save by training your team until it is stronger, with real, practical capability.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact" variant="primary" className="bg-[#03530A] text-white hover:bg-[#03A60E]">
-                  Request a Proposal
+                <Button href="/work-with-us" variant="primary" className="bg-[#03530A] text-white hover:bg-[#03A60E]">
+                  View Course Packages
                 </Button>
                 <a
                   href="#courses"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold font-[var(--ui)] text-[var(--text)] hover:text-[#03530A] transition-colors no-underline"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold font-[var(--ui)] text-[var(--text)] hover:text-[#03530A] transition-colors no-underline border border-[var(--border)] hover:border-[#4ADE80]"
                 >
                   <span>Explore Course Syllabi</span>
-                  <span aria-hidden="true">&darr;</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Illustration */}
+            {/* Right Hero Visual with Photo & Emblem */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <div className="w-full max-w-[320px] sm:max-w-[380px] flex items-center justify-center p-4">
-                <IllustrationBooks className="w-full h-auto" />
+              <div className="relative w-full rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl group aspect-[4/3] bg-[var(--raised)]">
+                <Image
+                  src="/brand-assets/strategy-session.jpg"
+                  alt="BluAcademy In-House Interactive Training"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 450px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0914]/80 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Floating Academy Emblem Badge */}
+                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-white flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-[#4ADE80]/20 border border-[#4ADE80]/40 flex items-center justify-center text-[#4ADE80] shrink-0">
+                    <ServiceIconAcademy size={24} />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-[#4ADE80] font-[var(--ui)]">
+                      Internal Muscle &bull; Zero Dependency
+                    </div>
+                    <div className="text-sm font-[var(--body)] text-white/90">
+                      6 Core Syllabi &bull; Custom Corporate Cohorts
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Training Architecture & Formats (Rich Dark Bento) */}
+      {/* 2. Simplified & Direct Capability Pillars (Rich Dark Bento) */}
       <section className="w-full relative bg-[#090E0C] text-white py-20 sm:py-28 border-b border-white/10 overflow-hidden isolate">
         <div
           className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[radial-gradient(ellipse,rgba(3,166,14,0.15)_0%,transparent_70%)] pointer-events-none -z-10"
@@ -94,26 +122,23 @@ export function BluAcademyPage() {
 
         <div className="wrap max-w-[1200px] px-6 mx-auto relative z-10">
           <div className="max-w-2xl mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[#4ADE80] mb-3">
-              <span>Training Architecture</span>
-            </div>
             <h2 className="font-[var(--disp)] text-[clamp(2rem,3.2vw+1rem,3.25rem)] font-normal text-white leading-tight m-0">
               How BluAcademy delivers impact.
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Card 1: Who gets trained */}
+            {/* Card 1: Who it is for */}
             <div className="p-8 rounded-3xl bg-white/[0.04] border border-white/10 shadow-xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider font-[var(--ui)] bg-[#03A60E]/20 text-[#4ADE80] border border-[#03A60E]/30 mb-4">
-                  Target Cohort
+                  Who It&rsquo;s For
                 </div>
                 <h3 className="font-[var(--disp)] text-2xl font-normal text-white mb-3">
-                  Cross-Functional Teams
+                  Your Internal Team
                 </h3>
-                <p className="font-[var(--body)] text-white/70 text-sm leading-relaxed m-0">
-                  Mixed teams across marketing, communications and strategy. Your organisation decides who is in the room to build cross-departmental synergy.
+                <p className="font-[var(--body)] text-white/70 text-sm sm:text-base leading-relaxed m-0">
+                  Marketing, communications, brand, and strategy personnel. You select the participants so skills immediately translate to active company projects.
                 </p>
               </div>
             </div>
@@ -122,28 +147,28 @@ export function BluAcademyPage() {
             <div className="p-8 rounded-3xl bg-white/[0.04] border border-white/10 shadow-xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider font-[var(--ui)] bg-[#38BDF8]/20 text-[#38BDF8] border border-[#38BDF8]/30 mb-4">
-                  Delivery Modes
+                  Delivery Formats
                 </div>
                 <h3 className="font-[var(--disp)] text-2xl font-normal text-white mb-3">
-                  In-Person, Hybrid &amp; Virtual
+                  Flexible Delivery
                 </h3>
-                <p className="font-[var(--body)] text-white/70 text-sm leading-relaxed m-0">
-                  Mostly in person, with hybrid and fully virtual options. Standard and extensive sessions; extensive sessions add high-impact hands-on workshops.
+                <p className="font-[var(--body)] text-white/70 text-sm sm:text-base leading-relaxed m-0">
+                  In-person, hybrid, or virtual. Select from intensive executive masterclasses or multi-week practical workshops built around your team&rsquo;s calendar.
                 </p>
               </div>
             </div>
 
-            {/* Card 3: Outcome */}
+            {/* Card 3: Measurable ROI */}
             <div className="p-8 rounded-3xl bg-white/[0.04] border border-white/10 shadow-xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider font-[var(--ui)] bg-[#C084FC]/20 text-[#C084FC] border border-[#C084FC]/30 mb-4">
                   Measurable ROI
                 </div>
                 <h3 className="font-[var(--disp)] text-2xl font-normal text-white mb-3">
-                  End-to-End Proficiency
+                  Permanent Capability
                 </h3>
-                <p className="font-[var(--body)] text-white/70 text-sm leading-relaxed m-0">
-                  Permanent internal capability across brand, communication, creativity and project delivery—reducing long-term reliance on expensive external vendors.
+                <p className="font-[var(--body)] text-white/70 text-sm sm:text-base leading-relaxed m-0">
+                  We enable your team&rsquo;s permanent internal capability, across brand, communication, creativity and project delivery—reducing long-term reliance on expensive external vendors.
                 </p>
               </div>
             </div>

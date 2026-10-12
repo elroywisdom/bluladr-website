@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import {
-  IllustrationCompass,
-  IllustrationSpotlight,
-  IllustrationBooks,
-} from "@/shared/ui/illustrations";
+  ServiceIconStrategy,
+  ServiceIconExecutive,
+  ServiceIconAcademy,
+} from "@/shared/ui/service-icons";
 
 const SERVICES = [
   {
@@ -14,10 +14,10 @@ const SERVICES = [
     desc: "Structured brand, marketing and business strategy, so every decision has an intentional direction.",
     href: "/blustrategy",
     color: "#4FB6DF",
-    badgeBg: "rgba(79, 182, 223, 0.15)",
-    badgeBorder: "rgba(79, 182, 223, 0.3)",
+    badgeBg: "rgba(79, 182, 223, 0.12)",
+    badgeBorder: "rgba(79, 182, 223, 0.25)",
     features: ["Brand & Identity Strategy", "Marketing Architecture", "Positioning & Messaging Frameworks"],
-    icon: <IllustrationCompass className="w-full h-full" />,
+    icon: <ServiceIconStrategy size={36} />,
   },
   {
     id: "bluexecutive",
@@ -26,10 +26,10 @@ const SERVICES = [
     desc: "Executive branding, public speaking and media training for leaders who represent the organisation.",
     href: "/bluexecutive",
     color: "#C084FC",
-    badgeBg: "rgba(192, 132, 252, 0.15)",
-    badgeBorder: "rgba(192, 132, 252, 0.3)",
+    badgeBg: "rgba(192, 132, 252, 0.12)",
+    badgeBorder: "rgba(192, 132, 252, 0.25)",
     features: ["Executive Image & Narrative", "Keynote & Speech Coaching", "Media Handling & Crisis Readiness"],
-    icon: <IllustrationSpotlight className="w-full h-full" />,
+    icon: <ServiceIconExecutive size={36} />,
   },
   {
     id: "bluacademy",
@@ -38,10 +38,10 @@ const SERVICES = [
     desc: "Practical training and interactive masterclasses that build strong, autonomous in-house teams.",
     href: "/bluacademy",
     color: "#4ADE80",
-    badgeBg: "rgba(74, 222, 128, 0.15)",
-    badgeBorder: "rgba(74, 222, 128, 0.3)",
+    badgeBg: "rgba(74, 222, 128, 0.12)",
+    badgeBorder: "rgba(74, 222, 128, 0.25)",
     features: ["Strategic Comms Masterclasses", "Creative Problem Solving", "Custom Corporate Cohorts"],
-    icon: <IllustrationBooks className="w-full h-full" />,
+    icon: <ServiceIconAcademy size={36} />,
   },
 ] as const;
 
@@ -79,11 +79,17 @@ export function ServicesSection() {
               className="group relative flex flex-col p-8 sm:p-9 rounded-3xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-2 no-underline backdrop-blur-sm"
               style={{ "--i": i } as React.CSSProperties}
             >
-              {/* Top Graphic Card */}
-              <div className="h-32 w-full flex items-center justify-center mb-6 p-4 rounded-2xl bg-black/40 border border-white/5 group-hover:scale-[1.02] transition-transform duration-300">
-                <div className="w-28 h-24">
-                  {service.icon}
-                </div>
+              {/* Top Graphic Icon Badge */}
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-105 shadow-md"
+                style={{
+                  backgroundColor: service.badgeBg,
+                  borderColor: service.badgeBorder,
+                  borderWidth: "1px",
+                  color: service.color,
+                }}
+              >
+                {service.icon}
               </div>
 
               {/* Tagline pill */}

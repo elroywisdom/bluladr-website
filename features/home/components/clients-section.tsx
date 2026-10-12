@@ -50,7 +50,7 @@ export function ClientsSection() {
         <div className="mb-10 sm:mb-14">
           <Eyebrow>Trusted Partnerships</Eyebrow>
           <h2 className="font-[var(--disp)] text-3xl sm:text-4xl md:text-5xl font-semibold text-[var(--text)] tracking-tight m-0">
-            In good company.
+            You’re in good company.
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[var(--text2)] max-w-2xl">
             Partnering with diplomatic missions, agribusiness pioneers, and public institutions to build sustainable growth.

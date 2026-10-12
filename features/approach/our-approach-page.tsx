@@ -25,23 +25,75 @@ export function OurApproachPage() {
         </div>
       </section>
 
-      {/* 2. Interactive 8-Step Ladder */}
-      <section className="w-full py-20 sm:py-28">
+      {/* 2. Interactive 8-Step Ladder & Creative Architectural Breakdown */}
+      <section className="w-full py-20 sm:py-28 md:py-36">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-start">
-            <div className="lg:sticky lg:top-32">
-              <h2 className="font-[var(--disp)] text-2xl sm:text-3xl lg:text-4xl font-normal mb-6 text-[var(--text)]">
-                The eight-step approach ladder
-              </h2>
-              <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-8">
-                From the first conversation to long-term monitoring, our process ensures total alignment, rigorous skill-building, and enduring value.
-              </p>
-              <Button href="/contact" variant="primary">
-                Request a Proposal
-              </Button>
+            {/* Left Column: Sticky Narrative, Phase Breakdown, & Visual Workshop Anchor */}
+            <div className="lg:sticky lg:top-32 space-y-8">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-[var(--azure)] font-[var(--ui)] block mb-3">
+                  The Blueprint
+                </span>
+                <h2 className="font-[var(--disp)] text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 text-[var(--text)] tracking-tight">
+                  The eight-step <br />
+                  <span className="italic underline decoration-[var(--azure)] decoration-2">approach ladder.</span>
+                </h2>
+                <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg leading-relaxed mb-8">
+                  From the first conversation to long-term monitoring, our process ensures total alignment, rigorous skill-building, and enduring value.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button href="/contact" variant="primary">
+                    Request a Proposal
+                  </Button>
+                  <Button href="/work-with-us" variant="secondary">
+                    View Packages
+                  </Button>
+                </div>
+              </div>
+
+              {/* 3 Strategic Horizons Matrix */}
+              <div className="p-6 rounded-3xl bg-[var(--raised)] border border-[var(--border)] space-y-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-[var(--azure)] font-[var(--ui)] mb-1">
+                  Three Strategic Horizons
+                </div>
+                
+                <div className="space-y-3 text-xs sm:text-sm font-[var(--ui)]">
+                  <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-start gap-3">
+                    <span className="px-2 py-0.5 rounded font-mono font-bold bg-[var(--azure)]/15 text-[var(--azure)] shrink-0">
+                      I
+                    </span>
+                    <div>
+                      <div className="font-bold text-[var(--text)]">Diagnostic &amp; Insight (Steps 01–03)</div>
+                      <div className="text-[var(--text2)] text-xs mt-0.5">Listening before advising. Mapping market realities and baseline capability.</div>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-start gap-3">
+                    <span className="px-2 py-0.5 rounded font-mono font-bold bg-[var(--purple)]/15 text-[var(--purple)] shrink-0">
+                      II
+                    </span>
+                    <div>
+                      <div className="font-bold text-[var(--text)]">Architecture &amp; Mastery (Steps 04–06)</div>
+                      <div className="text-[var(--text2)] text-xs mt-0.5">Giving the work a spine. Equipping internal staff with real operational tools.</div>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-start gap-3">
+                    <span className="px-2 py-0.5 rounded font-mono font-bold bg-[var(--green)]/15 text-[var(--green)] shrink-0">
+                      III
+                    </span>
+                    <div>
+                      <div className="font-bold text-[var(--text)]">Delivery &amp; Measurement (Steps 07–08)</div>
+                      <div className="text-[var(--text2)] text-xs mt-0.5">Staying in the arena. Tracking KPIs and measuring quantifiable change.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-[var(--surface)] p-6 sm:p-10 rounded-3xl border border-[var(--border)] shadow-sm">
+            {/* Right Column: Interactive Ladder */}
+            <div className="bg-[var(--surface)] p-6 sm:p-10 rounded-3xl border border-[var(--border)] shadow-md">
               <ApproachLadder />
             </div>
           </div>

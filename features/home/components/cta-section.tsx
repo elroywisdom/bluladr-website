@@ -12,10 +12,6 @@ export function CtaSection() {
 
       <div className="wrap max-w-[1200px] px-6 mx-auto relative z-10 text-center">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[var(--aqua)] mb-6">
-            <span>Start the Conversation</span>
-          </div>
-
           <h2 className="font-[var(--disp)] text-[clamp(2.5rem,4.5vw+1rem,4.25rem)] font-normal text-white leading-[1.08] tracking-[-0.025em] mb-6">
             Your team deserves to <span className="italic underline decoration-[var(--aqua)] decoration-2">grow.</span>
           </h2>
@@ -26,11 +22,11 @@ export function CtaSection() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
-              href="/contact"
+              href="/work-with-us"
               variant="white"
               className="w-full sm:w-auto px-8 py-4 text-base"
             >
-              Request a Proposal
+              View Packages
             </Button>
             <Button
               href="/contact"

@@ -1,6 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/shared/ui/button";
-import { IllustrationSpotlight } from "@/shared/ui/illustrations";
+import { ServiceIconExecutive } from "@/shared/ui/service-icons";
 
 const DELIVERABLES = [
   "Executive branding",
@@ -13,27 +14,55 @@ export function BluExecutivePage() {
   return (
     <div className="w-full bg-[var(--surface)] text-[var(--text)] transition-colors duration-200">
       {/* 1. Hero Section */}
-      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--border)]">
+      <section className="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--border)] overflow-hidden">
         <div className="wrap max-w-[1200px] px-6 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--purple)] font-[var(--ui)] block mb-4">
-                BluExecutive
-              </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--alt)] border border-[var(--border)] text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[var(--purple)] mb-6">
+                <ServiceIconExecutive size={16} />
+                <span>BluExecutive &bull; Presence &amp; Influence</span>
+              </div>
               <h1 className="font-[var(--disp)] text-[clamp(2.5rem,4.5vw+1rem,4.25rem)] leading-[1.08] tracking-[-0.025em] mb-6 text-[var(--text)]">
-                Be a more confident, articulate <span className="italic">leader.</span>
+                Be a more confident, articulate <span className="italic underline decoration-[var(--purple)] decoration-2">leader.</span>
               </h1>
-              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8">
-                We believe you can be a more confident, articulate leader for your organisation. Do you think so?
+              <p className="font-[var(--body)] text-[var(--text2)] text-lg sm:text-xl leading-relaxed mb-8 max-w-xl">
+                We work with executives and spokespersons to command presence, handle high-stakes media, and communicate vision with undeniable clarity.
               </p>
-              <Button href="/contact" variant="primary">
-                Request a Proposal
-              </Button>
+              <div className="flex flex-wrap items-center gap-4">
+                <Button href="/contact" variant="primary">
+                  Request a Proposal
+                </Button>
+                <Button href="/work-with-us" variant="secondary">
+                  View Packages
+                </Button>
+              </div>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[var(--raised)] border border-[var(--border)] shadow-sm flex items-center justify-center">
-              <div className="w-64 h-64 flex items-center justify-center">
-                <IllustrationSpotlight className="w-full h-full text-[var(--purple)]" />
+            {/* Elevated Hero Visual */}
+            <div className="relative rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl group aspect-[4/3] bg-[var(--raised)]">
+              <Image
+                src="/brand-assets/executive-training.jpg"
+                alt="BluLadr Executive Coaching & Keynote Training"
+                fill
+                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0914]/80 via-transparent to-transparent pointer-events-none" />
+              
+              {/* Floating Executive Emblem Badge */}
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-white flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[var(--purple)]/20 border border-[var(--purple)]/40 flex items-center justify-center text-[var(--purple)] shrink-0">
+                  <ServiceIconExecutive size={28} />
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[var(--purple)] font-[var(--ui)]">
+                    Presence &bull; Influence &bull; Poise
+                  </div>
+                  <div className="text-sm font-[var(--body)] text-white/90">
+                    Keynotes &bull; Media Crisis &bull; Boardroom Authority
+                  </div>
+                </div>
               </div>
             </div>
           </div>

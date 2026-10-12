@@ -37,6 +37,26 @@ export function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // Restore user info from previous sessions so returning users don't need to re-type
+  React.useEffect(() => {
+    try {
+      const saved = localStorage.getItem("bluladr_contact_profile");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setFormData((prev) => ({
+          ...prev,
+          fullName: parsed.fullName || prev.fullName,
+          jobTitle: parsed.jobTitle || prev.jobTitle,
+          organisation: parsed.organisation || prev.organisation,
+          email: parsed.email || prev.email,
+          phone: parsed.phone || prev.phone,
+        }));
+      }
+    } catch {
+      // Ignore storage errors in private browsing
+    }
+  }, []);
+
   const toggleCourse = (course: string) => {
     setFormData((prev) => ({
       ...prev,
@@ -50,6 +70,22 @@ export function ContactPage() {
     e.preventDefault();
     setLoading(true);
     setErrorMessage(null);
+
+    // Persist profile to localStorage for seamless autofill on future visits
+    try {
+      localStorage.setItem(
+        "bluladr_contact_profile",
+        JSON.stringify({
+          fullName: formData.fullName,
+          jobTitle: formData.jobTitle,
+          organisation: formData.organisation,
+          email: formData.email,
+          phone: formData.phone,
+        })
+      );
+    } catch {
+      // Ignore
+    }
 
     const detailedMessage = [
       formData.message,
@@ -163,10 +199,13 @@ export function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
+                      <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
                         Full name *
                       </label>
                       <Input
+                        id="fullName"
+                        name="name"
+                        autoComplete="name"
                         required
                         placeholder="Innocent Agboma"
                         value={formData.fullName}
@@ -175,10 +214,13 @@ export function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
+                      <label htmlFor="jobTitle" className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
                         Job title *
                       </label>
                       <Input
+                        id="jobTitle"
+                        name="organization-title"
+                        autoComplete="organization-title"
                         required
                         placeholder="Head of Brand / Communications"
                         value={formData.jobTitle}
@@ -189,10 +231,13 @@ export function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
+                      <label htmlFor="organisation" className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
                         Organisation *
                       </label>
                       <Input
+                        id="organisation"
+                        name="organization"
+                        autoComplete="organization"
                         required
                         placeholder="Company / Organisation name"
                         value={formData.organisation}
@@ -201,10 +246,13 @@ export function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
+                      <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
                         Work email *
                       </label>
                       <Input
+                        id="email"
+                        name="email"
+                        autoComplete="email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -216,10 +264,13 @@ export function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
+                      <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[var(--text2)] font-[var(--ui)] mb-2">
                         Phone number
                       </label>
                       <Input
+                        id="phone"
+                        name="tel"
+                        autoComplete="tel"
                         type="tel"
                         placeholder="0902 081 1734"
                         value={formData.phone}

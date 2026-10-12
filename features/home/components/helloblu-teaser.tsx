@@ -39,22 +39,19 @@ export function HelloBluTeaser() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--alt)] border border-[var(--border)] text-xs font-bold font-[var(--ui)] uppercase tracking-wider text-[var(--accent)] mb-4">
-              <span>Publication &amp; Insights</span>
+              <span className="w-2 h-2 rounded-full bg-[var(--azure)] animate-pulse" />
+              <span>Publication &amp; Insights &bull; Upcoming</span>
             </div>
             <h2 className="font-[var(--disp)] text-[clamp(2.25rem,3.5vw+1rem,3.75rem)] leading-[1.08] tracking-[-0.025em] text-[var(--text)] m-0">
               Fresh thinking from <span className="italic underline decoration-[var(--azure)] decoration-2">HelloBlu.</span>
             </h2>
             <p className="font-[var(--body)] text-[var(--text2)] text-base sm:text-lg mt-3 leading-relaxed">
-              Short, high-leverage reads on brand strategy, executive presence, and modern communications.
+              Our inaugural publication series is in editorial production. Preview forthcoming topics below.
             </p>
           </div>
-          <Link
-            href="/helloblu"
-            className="inline-flex items-center gap-2 font-[var(--ui)] text-sm font-bold text-[var(--accent)] hover:text-[var(--azure)] hover:translate-x-1 transition-all no-underline"
-          >
-            <span>View all articles</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--alt)] border border-[var(--border)] font-[var(--ui)] text-xs font-bold uppercase tracking-wider text-[var(--text2)]">
+            <span>Publications Launching Soon</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -86,13 +83,10 @@ export function HelloBluTeaser() {
               </div>
 
               <div className="pt-6 mt-6 border-t border-[var(--border)] flex items-center justify-between">
-                <Link
-                  href={post.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider font-[var(--ui)] text-[var(--accent)] group-hover:text-[var(--azure)] group-hover:translate-x-1 transition-all no-underline"
-                >
-                  <span>Read Article</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider font-[var(--ui)] text-[var(--azure)] opacity-80">
+                  <span>Forthcoming Edition</span>
+                </span>
+                <span className="text-xs font-mono text-[var(--text2)] opacity-60">Q4 2026</span>
               </div>
             </article>
           ))}

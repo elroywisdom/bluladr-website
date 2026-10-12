@@ -98,12 +98,12 @@ export function ApproachLadder({ steps = DEFAULT_STEPS, className }: { steps?: A
       {/* Background track */}
       <div
         aria-hidden="true"
-        className="absolute left-[35px] top-6 bottom-6 w-1.5 rounded-full bg-[var(--border)] pointer-events-none"
+        className="absolute left-6 sm:left-7 top-6 bottom-6 w-1 rounded-full bg-[var(--border)] pointer-events-none -translate-x-1/2"
       />
       {/* Filled track with signature gradient */}
       <div
         aria-hidden="true"
-        className="absolute left-[35px] top-6 w-1.5 rounded-full bg-[var(--grad)] pointer-events-none transition-all duration-300"
+        className="absolute left-6 sm:left-7 top-6 w-1 rounded-full bg-[var(--grad)] pointer-events-none transition-all duration-300 -translate-x-1/2"
         style={{ height: `calc((100% - 48px) * ${progress})` }}
       />
 
@@ -118,25 +118,27 @@ export function ApproachLadder({ steps = DEFAULT_STEPS, className }: { steps?: A
               isActive ? "opacity-100 translate-x-0" : "opacity-45"
             )}
           >
-            {/* Step icon bubble */}
+            {/* Step node bubble with prominent step numbering */}
             <div
               className={cn(
-                "w-16 h-16 sm:w-[72px] sm:h-[72px] shrink-0 rounded-full flex items-center justify-center transition-all duration-400",
-                "bg-[var(--surface)] border-2",
+                "w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center font-mono font-bold text-sm sm:text-base transition-all duration-400",
+                "bg-[var(--surface)] border",
                 isActive
-                  ? "border-[var(--sky)] text-[var(--accent)] shadow-[0_0_0_4px_rgba(4,157,217,0.2)] scale-105"
-                  : "border-[var(--border)] text-[var(--text2)]"
+                  ? "border-[var(--sky)] text-[var(--ink)] bg-gradient-to-br from-[var(--sky)]/20 to-[var(--sky)]/5 shadow-md shadow-[var(--sky)]/10 scale-105"
+                  : "border-[var(--border)] text-[var(--text2)] opacity-70"
               )}
             >
-              {step.icon}
+              {String(idx + 1).padStart(2, "0")}
             </div>
 
             {/* Content */}
-            <div className="pt-2">
-              <h3 className="text-lg sm:text-xl font-bold font-[var(--ui)] text-[var(--text)] mb-1">
-                {step.title}
-              </h3>
-              <p className="text-[var(--text2)] text-base font-[var(--body)] leading-relaxed m-0">
+            <div className="pt-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-lg sm:text-xl font-bold font-[var(--ui)] text-[var(--text)] m-0">
+                  {step.title}
+                </h3>
+              </div>
+              <p className="text-[var(--text2)] text-sm sm:text-base font-[var(--body)] leading-relaxed m-0">
                 {step.desc}
               </p>
             </div>

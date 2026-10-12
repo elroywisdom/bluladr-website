@@ -84,7 +84,7 @@ export function BluAcademyPage() {
             <div className="lg:col-span-5 flex items-center justify-center">
               <div className="relative w-full rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl group aspect-[4/3] bg-[var(--raised)]">
                 <Image
-                  src="/brand-assets/strategy-session.jpg"
+                  src="/images/african-professionals-strategy-workshop.jpg"
                   alt="BluAcademy In-House Interactive Training"
                   fill
                   sizes="(max-width: 1024px) 100vw, 450px"

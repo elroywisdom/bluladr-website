@@ -41,11 +41,11 @@ export function BluExecutivePage() {
             {/* Elevated Hero Visual */}
             <div className="relative rounded-3xl overflow-hidden border border-[var(--border)] shadow-xl group aspect-[4/3] bg-[var(--raised)]">
               <Image
-                src="/brand-assets/executive-training.jpg"
-                alt="BluLadr Executive Coaching & Keynote Training"
+                src="/images/african-executive-keynote-speaker-stage.jpg"
+                alt="BluLadr Executive Presence & Keynote Training"
                 fill
                 sizes="(max-width: 1024px) 100vw, 500px"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0914]/80 via-transparent to-transparent pointer-events-none" />

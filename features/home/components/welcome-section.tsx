@@ -52,8 +52,8 @@ export function WelcomeSection() {
           <div className="lg:col-span-5 reveal">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] aspect-[4/3] group">
               <Image
-                src="/brand-assets/strategy-session.jpg"
-                alt="BluLadr strategy workshop in session"
+                src="/images/business-people-meeting.jpg"
+                alt="BluLadr collaborative sprint workshop"
                 fill
                 sizes="(max-width: 1024px) 100vw, 450px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -61,7 +61,7 @@ export function WelcomeSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-[var(--ui)] font-semibold tracking-wide flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[var(--aqua)] animate-pulse" />
-                Collaborative strategy &amp; team alignment
+                Structured strategy &bull; Engaging execution
               </div>
             </div>
           </div>
